@@ -51,9 +51,9 @@ class ProfileController extends Controller
     public function changeInfo(Request $request) {
         //*/
         $validator = Validator::make($request->all(), array(
-            'first_name' => 'nullable|regex:/[a-zA-Z]+/u',
-            'last_name' => 'nullable|regex:/[a-zA-Z]+/u',
-            'patronymic' => 'nullable|regex:/[a-zA-Z]+/u',
+            'first_name' => 'nullable|regex:/[a-zA-Zа-яА-Я]+/u',
+            'last_name' => 'nullable|regex:/[a-zA-Zа-яА-Я]+/u',
+            'patronymic' => 'nullable|regex:/[a-zA-Zа-яА-Я]+/u',
             'phone' => array('nullable', 'regex:/((\+)?(\d+)|(\-)|\(|\))+/u')
         ));
 
