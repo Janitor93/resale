@@ -54,7 +54,7 @@
                     Не указано
                 @endif
             </div>
-            @if(Auth::check())
+            @if(Auth::check() && Auth::user()->id == $user->id)
             <div class="col-md-12">
                 <br>
                 <a href="{{route('profile.edit', ['id' => $user->id])}}" type="button" class="btn btn-primary">Редактировать</a>

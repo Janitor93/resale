@@ -12,14 +12,18 @@ class ProfileController extends Controller
 {
     public function show($id) {
         $user = DB::table('users')->where('id', $id)->first();
-        $user->role_name = DB::table('roles')->select('role_name')->where('id', $user->role_id)->first()->role_name;
+        if(!empty($user->role_id)) {
+            $user->role_name = DB::table('roles')->select('role_name')->where('id', $user->role_id)->first()->role_name;
+        } else {
+            $user->role_name = 'user';
+        }
         return view('profile.index', ['user' => $user]);
     }
 
     public function edit($id) {
+        if(Auth::id() != $id) return redirect()->back();
         $user = DB::table('users')->where('id', $id)->first();
-        $user->role_name = DB::table('roles')->select('role_name')->where('id', $user->role_id)->first()->role_name;
-        return view('profile.edit', ['user' => $user]);
+        return view('profile.edit', ['user' => $user])->with('user', Auth::user());
     }
 
     public function changePassword(Request $request) {

@@ -13,7 +13,6 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $adminRoleId = DB::table('roles')->where('role_name', 'admin')->first();
-
         
 
         DB::table('users')->insert([

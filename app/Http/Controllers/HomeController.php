@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -13,7 +14,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+//        $this->middleware('auth');
     }
 
     /**
@@ -21,8 +22,27 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $requestData = $request->all();
+        if(isset($requestData['sort'])) {
+            switch($requestData['sort']) {
+                case 'product_name':
+                    $sortBy = 'product_name';
+                    break;
+                case 'price':
+                    $sortBy = 'price';
+                    break;
+                default:
+                    $sortBy = 'created_at';
+                    break;
+            }
+        } else {
+            $sortBy = 'created_at';
+        }
+
+
+        $products = DB::table('products')->where('quantity', '>', 0)->orderBy($sortBy)->paginate(12);
+        return view('index', ['products' => $products]);
     }
 }
