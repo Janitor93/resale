@@ -1,3 +1,20 @@
+
+Последовательность команд для запуска. Нужен git и composer
+1. git clone https://github.com/Janitor93/resale.git
+2. cd resale                        #заходим в скачанную директорию
+3. composer install
+4. cp .env.example .env             #нужно создать .env файл по примеру .env.example
+5. php artisan key:generate
+6. создать базу данных, прописать ее в .env фале DB_DATABASE, а так же указать пользователя и пароль к базе DB_USERNAME, DB_PASSWORD
+7. php artisan migrate --seed       #создает нужные таблицы и заполняет их начальными данными
+8. php artisan serve                #запуск
+
+
+===============================================================
+
+
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
@@ -56,14 +73,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-
-Последовательность команд для запуска. Нужен git и composer
-1. git clone https://github.com/Janitor93/resale.git
-2. cd resale                        #заходим в скачанную директорию
-3. composer install
-4. cp .env.example .env             #нужно создать .env файл по примеру .env.example
-5. php artisan key:generate
-6. создать базу данных, прописать ее в .env фале DB_DATABASE, а так же указать пользователя и пароль к базе DB_USERNAME, DB_PASSWORD
-7. php artisan migrate --seed       #создает нужные таблицы и заполняет их начальными данными
-8. php artisan serve                #запуск
