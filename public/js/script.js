@@ -40,7 +40,8 @@ $(document).ready(function() {
                 quantity: productQuantity
             },
             success: function() {
-                $('.order-result').html('Товар приобретен');
+                $(location).attr('href', '/user/order/list');
+                //$('.order-result').html('Товар приобретен');
             }
         });
         //*/

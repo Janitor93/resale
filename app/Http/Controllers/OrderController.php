@@ -27,8 +27,8 @@ class OrderController extends Controller
         }
     }
 
-    public function getUserList($id) {
-        $orders = DB::table('orders')->where('user_id', '=', $id)->get();
+    public function getUserList() {
+        $orders = DB::table('orders')->where('user_id', '=', Auth::id())->get();
         return view('order.userlist', ['orders' => $orders]);
     }
 }

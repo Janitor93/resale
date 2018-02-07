@@ -27,4 +27,4 @@ Route::post('/order/save', 'OrderController@create');
 Route::get('/product/{id}/list', ['as' => 'product.list', 'uses' =>'ProductController@getMyProducts'])->middleware('auth');
 Route::get('/product/{id}/edit', ['as' => 'product.edit', 'uses' => 'ProductController@editPage'])->middleware('auth');
 Route::post('/product/update', ['as' => 'product.update', 'uses' => 'ProductController@update']);
-Route::get('/user/{id}/order/list', ['as' => 'order.list', 'uses' => 'OrderController@getUserList'])->middleware('auth');
+Route::get('/user/order/list', ['as' => 'order.list', 'uses' => 'OrderController@getUserList'])->middleware('auth');

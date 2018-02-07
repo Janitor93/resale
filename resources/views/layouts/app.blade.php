@@ -61,7 +61,7 @@
                                         <a href="{{ route('product.list', ['id' => Auth::user()->id]) }}">Мои товары</a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('order.list', ['id' => Auth::user()->id]) }}">Мои заказы</a>
+                                        <a href="{{ route('order.list') }}">Мои заказы</a>
                                     </li>
                                     <li>
                                         <a href="{{ route('logout') }}"
